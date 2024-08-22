@@ -1,0 +1,92 @@
+*
+body{   
+              display              : flex;
+              justify-content      : center;           
+}
+
+#mainContainer{
+              width                : 200px;
+              height               : 500px;
+              display              : grid;
+              grid-auto-flow       : row;
+}
+              
+.color-light{
+              border               : 2px solid rgb(86, 83, 83);
+              border-radius        : 10px;
+              background-color     : gray;
+              box-shadow           : 0 0 5px #252424;
+
+              display              : grid;
+              grid-auto-flow       : row;
+              text-align           : center;
+              justify-content      : center;  
+}          
+#red-light {
+              width                : 100px;
+              height               : 100px;
+              align-content        : center;
+              margin-top           : 20px;
+
+              /* background-color     : rgb(61, 61, 61); */
+              border               : 2px solid rgb(72, 69, 69);
+              border-radius        : 50px;
+              -moz-border-radius   : 50px;
+              -webkit-border-radius: 50px;              
+}
+.color.active{
+              background-color     : red;
+              box-shadow           : 0 0 5px #4f0101;
+              transition-duration  : 1s;
+}
+
+#yellow-light{
+              width                : 100px;
+              height               : 100px;
+              align-content        : center;
+
+              background-color     : rgb(61, 61, 61);
+              border               : 2px solid rgb(72, 69, 69);
+              border-radius        : 50px;
+              -moz-border-radius   : 50px;
+              -webkit-border-radius: 50px;
+}
+#yellow-light:active{
+              background-color     : yellow;
+              box-shadow           : 0 0 5px #6e5d09;
+              transition-duration  : 1s;
+}
+
+#green-light{
+              width                : 100px;
+              height               : 100px;
+              align-content        : center;
+
+              background-color     : rgb(61, 61, 61);
+              border               : 2px solid rgb(72, 69, 69);
+              border-radius        : 50px;
+              -moz-border-radius   : 50px;
+              -webkit-border-radius: 50px;
+}
+#green-light:active{
+              background-color     : green;
+              box-shadow           : 0 0 5px #0f4f01;
+              transition-duration  : 1s;
+}
+
+.timer{
+              width                : 100%;
+              margin-bottom        : 20px;
+              text-align           : center;
+              align-content        : center; 
+              
+              border               : 0.5px solid #2c345e;
+              
+              border-radius        : 15px;
+              background-color     : rgb(103, 182, 247);   
+}
+.timer:active{
+              box-shadow           : 0 0 5px #051b85;
+              transition-duration  : 0.2s;
+              
+}          
