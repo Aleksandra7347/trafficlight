@@ -1,29 +1,56 @@
 let redLight = document.getElementById('red-light')
 let yellowLight = document.getElementById('yellow-light')
 let greenLight = document.getElementById('green-light')
-// const timer = document.getElementById('timer')
+
 const color = document.querySelector('.color')
 const timer = document.querySelector('.timer')
 
-
-
-const promiseTimerColor = (time) => {
-  const promise = new Promise((resolve, reject) => {
-              setInterval(() => {
-                            resolve(redLight.textContent = time <= 0 
-                                    ? clearInterval(time): time--
-                            )        
-              }, 1000) 
-
-              setTimeout(addActiveClass, time)
-              setTimeout(removeActiveClass, 6000)                     
+timer.addEventListener('click', function() {
+        redLightColor(10)
+                .then(()=>yellowLightColor(5))
+                .then(()=>greenLightColor(30))                                           
 })
-              return promise   
+
+function redLightColor(time){
+        return new Promise((resolve, reject) => {
+                setInterval(() => {
+                        resolve(redLight.textContent = time <= 0 
+                        ? clearInterval(time): time--
+                        )        
+                }, 1000) 
+              
+        setTimeout(addActiveClass, time)
+        setTimeout(removeActiveClass, 6000)                     
+              })   
 }
 
-timer.addEventListener('click', function(event) {
-              promiseTimerColor(5).then(() => {console.log('promise')})                                            
-})
+
+function yellowLightColor(time){
+        return new Promise((resolve, reject) => {
+                setInterval(() => {
+                        resolve(yellowLight.textContent = time <= 0 
+                        ? clearInterval(time): time--
+                )        
+                }, 1000) 
+              
+                setTimeout(addActiveClass, time)
+                setTimeout(removeActiveClass, 6000)                     
+              })   
+}
+
+function greenLightColor(time){
+        return new Promise((resolve, reject) => {
+                setInterval(() => {
+                        resolve(greenLight.textContent = time <= 0 
+                                ? clearInterval(time): time--
+                        )        
+                        }, 1000) 
+              
+                setTimeout(addActiveClass, time)
+                setTimeout(removeActiveClass, 6000)                     
+              })   
+}
+
 
 function addActiveClass() {
               color.classList.add('active')
