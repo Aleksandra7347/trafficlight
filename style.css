@@ -1,7 +1,9 @@
 *
 body{   
               display              : flex;
-              justify-content      : center;           
+              justify-content      : center;  
+              font-family          : "Roboto", sans-serif; 
+              color: rgb(47, 52, 52);    
 }
 
 #mainContainer{
@@ -22,55 +24,53 @@ body{
               text-align           : center;
               justify-content      : center;  
 }          
-#red-light {
+.color-red {
               width                : 100px;
               height               : 100px;
               align-content        : center;
               margin-top           : 20px;
 
-              /* background-color     : rgb(61, 61, 61); */
+              background-color     : rgb(61, 61, 61);
+              
               border               : 2px solid rgb(72, 69, 69);
               border-radius        : 50px;
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;              
 }
 .color-red.active{
-              background-color     : red;
-              box-shadow           : 0 0 5px #4f0101;
+              background           : radial-gradient( rgba(255,6,6,1), rgba(21,21,25,0.7));
               transition-duration  : 1s;
 }
 
-#yellow-light{
+.color-yellow{
               width                : 100px;
               height               : 100px;
               align-content        : center;
 
-              /* background-color     : rgb(61, 61, 61); */
+              background-color     : rgb(61, 61, 61);
               border               : 2px solid rgb(72, 69, 69);
               border-radius        : 50px;
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;
 }
 .color-yellow.active{
-              background-color     : yellow;
-              box-shadow           : 0 0 5px #6e5d09;
+              background           : radial-gradient( rgb(255,222,6,1), rgba(21,21,25,0.7));
               transition-duration  : 1s;
 }
 
-#green-light{
+.color-green{
               width                : 100px;
               height               : 100px;
               align-content        : center;
 
-              /* background-color     : rgb(61, 61, 61); */
+              background-color     : rgb(61, 61, 61);
               border               : 2px solid rgb(72, 69, 69);
               border-radius        : 50px;
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;
 }
 .color-green.active{
-              background-color     : green;
-              box-shadow           : 0 0 5px #0f4f01;
+              background           : radial-gradient( rgb(5,199,11,1), rgba(21,21,25,0.7));
               transition-duration  : 1s;
 }
 
@@ -78,15 +78,16 @@ body{
               width                : 100%;
               margin-bottom        : 20px;
               text-align           : center;
+              color: #45455a;
               align-content        : center; 
               
-              border               : 0.5px solid #2c345e;
+              border               : 0.5px solid #6c728e;
               
               border-radius        : 15px;
               background-color     : rgb(103, 182, 247);   
 }
 .timer:active{
               box-shadow           : 0 0 5px #051b85;
-              transition-duration  : 0.2s;
-              
-}          
+              transition-duration  : 0.2s;            
+}      
+  
