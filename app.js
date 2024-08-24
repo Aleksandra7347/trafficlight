@@ -29,13 +29,11 @@ function removeActiveClassGreen() {
 
 timer.addEventListener('click', function() {
         redLightColor(10)
-                .then(()=> {
-                        yellowLightColor(5)
+                .then(()=> {yellowLightColor(5)
+                        .then(()=> {greenLightColor(15)})
                 })
-                .then(()=>{greenLightColor(15)})                                           
+                                                           
 })
-
-
 
 function redLightColor(time){
         return new Promise((resolve, reject) => {
@@ -43,38 +41,34 @@ function redLightColor(time){
                         if(time === 0) resolve()
                         redLight.textContent = time <= 0 
                         ? clearInterval(time): time--
-     
-                }, 1000)
-              
-        setTimeout(addActiveClassRed, time)
-        setTimeout(removeActiveClassRed, 11000)                     
+                }, 1000)          
+                setTimeout(addActiveClassRed, time)
+                setTimeout(removeActiveClassRed, 11000)                     
         })   
 }
 
 function yellowLightColor(time){
         return new Promise((resolve, reject) => {
                 setInterval(() => {
-                        resolve(yellowLight.textContent = time <= 0 
-                        ? clearInterval(time): time--
-                )        
-                }, 1000) 
-              
+                        if(time === 0) resolve()
+                        yellowLight.textContent = time <= 0 
+                        ? clearInterval(time): time--      
+                }, 1000)      
                 setTimeout(addActiveClassYellow, time)
                 setTimeout(removeActiveClassYellow, 6000)                     
-              })   
+        })   
 }
 
 function greenLightColor(time){
         return new Promise((resolve, reject) => {
                 setInterval(() => {
-                        resolve(greenLight.textContent = time <= 0 
-                                ? clearInterval(time): time--
-                        )        
-                        }, 1000) 
-              
+                        if(time === 0) resolve()
+                        greenLight.textContent = time <= 0 
+                        ? clearInterval(time): time--    
+                }, 1000) 
                 setTimeout(addActiveClassGreen, time)
                 setTimeout(removeActiveClassGreen, 16000)                     
-              })   
+        })   
 }
 
 
