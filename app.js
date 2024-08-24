@@ -2,14 +2,38 @@ let redLight = document.getElementById('red-light')
 let yellowLight = document.getElementById('yellow-light')
 let greenLight = document.getElementById('green-light')
 
-const color = document.querySelector('.color')
+const colorRed = document.querySelector('.color-red')
+const colorYellow = document.querySelector('.color-yellow')
+const colorGreen = document.querySelector('.color-green')
+
 const timer = document.querySelector('.timer')
+
+function addActiveClassRed() {
+        colorRed.classList.add('active')
+}
+function removeActiveClassRed() {
+        colorRed.classList.remove('active')
+}
+function addActiveClassYellow() {
+        colorYellow.classList.add('active')
+}
+function removeActiveClassYellow() {
+        colorYellow.classList.remove('active')
+}
+function addActiveClassGreen() {
+        colorGreen.classList.add('active')
+}
+function removeActiveClassGreen() {
+        colorGreen.classList.remove('active')
+}
 
 timer.addEventListener('click', function() {
         redLightColor(10)
                 .then(()=>yellowLightColor(5))
-                .then(()=>greenLightColor(30))                                           
+                .then(()=>greenLightColor(15))                                           
 })
+
+console.log(redLightColor)
 
 function redLightColor(time){
         return new Promise((resolve, reject) => {
@@ -19,11 +43,10 @@ function redLightColor(time){
                         )        
                 }, 1000) 
               
-        setTimeout(addActiveClass, time)
-        setTimeout(removeActiveClass, 6000)                     
-              })   
+        setTimeout(addActiveClassRed, time)
+        setTimeout(removeActiveClassRed, 11000)                     
+        })   
 }
-
 
 function yellowLightColor(time){
         return new Promise((resolve, reject) => {
@@ -33,8 +56,8 @@ function yellowLightColor(time){
                 )        
                 }, 1000) 
               
-                setTimeout(addActiveClass, time)
-                setTimeout(removeActiveClass, 6000)                     
+                setTimeout(addActiveClassYellow, time)
+                setTimeout(removeActiveClassYellow, 6000)                     
               })   
 }
 
@@ -46,19 +69,13 @@ function greenLightColor(time){
                         )        
                         }, 1000) 
               
-                setTimeout(addActiveClass, time)
-                setTimeout(removeActiveClass, 6000)                     
+                setTimeout(addActiveClassGreen, time)
+                setTimeout(removeActiveClassGreen, 16000)                     
               })   
 }
 
 
-function addActiveClass() {
-              color.classList.add('active')
-}
 
-function removeActiveClass() {
-              color.classList.remove('active')
-}
 
 // function timerColorRed(time) {
 //               setInterval(() => {

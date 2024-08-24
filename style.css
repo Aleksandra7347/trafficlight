@@ -34,7 +34,7 @@ body{
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;              
 }
-.color.active{
+.color-red.active{
               background-color     : red;
               box-shadow           : 0 0 5px #4f0101;
               transition-duration  : 1s;
@@ -45,13 +45,13 @@ body{
               height               : 100px;
               align-content        : center;
 
-              background-color     : rgb(61, 61, 61);
+              /* background-color     : rgb(61, 61, 61); */
               border               : 2px solid rgb(72, 69, 69);
               border-radius        : 50px;
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;
 }
-#yellow-light:active{
+.color-yellow.active{
               background-color     : yellow;
               box-shadow           : 0 0 5px #6e5d09;
               transition-duration  : 1s;
@@ -62,13 +62,13 @@ body{
               height               : 100px;
               align-content        : center;
 
-              background-color     : rgb(61, 61, 61);
+              /* background-color     : rgb(61, 61, 61); */
               border               : 2px solid rgb(72, 69, 69);
               border-radius        : 50px;
               -moz-border-radius   : 50px;
               -webkit-border-radius: 50px;
 }
-#green-light:active{
+.color-green.active{
               background-color     : green;
               box-shadow           : 0 0 5px #0f4f01;
               transition-duration  : 1s;
