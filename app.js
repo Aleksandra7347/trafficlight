@@ -29,19 +29,22 @@ function removeActiveClassGreen() {
 
 timer.addEventListener('click', function() {
         redLightColor(10)
-                .then(()=>yellowLightColor(5))
-                .then(()=>greenLightColor(15))                                           
+                .then(()=> {
+                        yellowLightColor(5)
+                })
+                .then(()=>{greenLightColor(15)})                                           
 })
 
-console.log(redLightColor)
+
 
 function redLightColor(time){
         return new Promise((resolve, reject) => {
                 setInterval(() => {
-                        resolve(redLight.textContent = time <= 0 
+                        if(time === 0) resolve()
+                        redLight.textContent = time <= 0 
                         ? clearInterval(time): time--
-                        )        
-                }, 1000) 
+     
+                }, 1000)
               
         setTimeout(addActiveClassRed, time)
         setTimeout(removeActiveClassRed, 11000)                     
