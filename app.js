@@ -10,14 +10,44 @@ const timer = document.querySelector('.timer')
 
 let isEnableButton = true
 
+class Traffic {
+        constructor(color, interval, colorInterval, addTime, removeTime) {
+                this.color = color;
+                this.interval = interval;
+                this.colorInterval = colorInterval;
+                this.addTime = addTime;
+                this.removeTime = removeTime;
+        }    
+    
+        lightColor(){
+                return new Promise((resolve) => {
+                        setInterval(() => {
+                                if(this.interval === 0) resolve()
+                                        this.colorInterval.textContent = this.interval <= 0 
+                                ? clearInterval(this.interval): this.interval--
+                        }, 1000)          
+                        setTimeout(() => {
+                                this.color.classList.add('active')
+                                }, this.addTime)
+
+                        setTimeout(() => {
+                                this.color.classList.remove('active')
+                                }, this.removeTime)                     
+                })   
+        }      
+}
+
 timer.addEventListener('click', function() {
         if(isEnableButton) {
                 isEnableButton = false
-                redLightColor(5)
+
+                console.log(red.color)
+
+                red.lightColor()
                 .then(()=> {
-                        yellowLightColor(3)
+                        yellow.lightColor()
                         .then(()=> {
-                                greenLightColor(10)
+                                green.lightColor()
                                         .then(()=> {
                                                 isEnableButton = true
                         })
@@ -27,61 +57,70 @@ timer.addEventListener('click', function() {
                                                            
 })
 
-function addActiveClass(color) {
-        color.classList.add('active')
-}
+const red = new Traffic (colorRed, 5, redLight, 1000, 6000)
+const yellow = new Traffic (colorYellow, 3, yellowLight, 1000, 4000)
+const green = new Traffic (colorGreen, 10, greenLight, 1000, 11000)
 
-function removeActiveClass(color) {
-        color.classList.remove('active')
-}
+console.log(red.color)
+console.log(red.interval)
+console.log(red.addTime)
+console.log(red.removeTime)
 
-function redLightColor(time){
-        return new Promise((resolve) => {
-                setInterval(() => {
-                        if(time === 0) resolve()
-                        redLight.textContent = time <= 0 
-                        ? clearInterval(time): time--
-                }, 1000)          
-                setTimeout(() => {
-                        addActiveClass(colorRed)
-                }, time)
-                setTimeout(() => {
-                        removeActiveClass(colorRed)
-                }, 6000)                     
-        })   
-}
 
-function yellowLightColor(time){
-        return new Promise((resolve) => {
-                setInterval(() => {
-                        if(time === 0) resolve()
-                        yellowLight.textContent = time <= 0 
-                        ? clearInterval(time): time--      
-                }, 1000)      
-                setTimeout(() => {
-                        addActiveClass(colorYellow)
-                }, time)
-                setTimeout(() => {removeActiveClass(colorYellow)
 
-                }, 4000)                     
-        })   
-}
+// function redLightColor(time){
+//         return new Promise((resolve) => {
+//                 setInterval(() => {
+//                         if(time === 0) resolve()
+//                         redLight.textContent = time <= 0 
+//                         ? clearInterval(time): time--
+//                 }, 1000)          
+//                 setTimeout(() => {
+//                         addActiveClass(colorRed)
+//                 }, time)
+//                 setTimeout(() => {
+//                         removeActiveClass(colorRed)
+//                 }, 6000)                     
+//         })   
+// }
 
-function greenLightColor(time){
-        return new Promise((resolve) => {
-                setInterval(() => {
-                        if(time === 0) resolve()
-                        greenLight.textContent = time <= 0 
-                        ? clearInterval(time): time--    
-                }, 1000) 
-                setTimeout(() => {
-                        addActiveClass(colorGreen)
-                }, time)
-                setTimeout(() => {
-                        removeActiveClass(colorGreen)
-                }, 11000)                     
-        })   
-}
+// function yellowLightColor(time){
+//         return new Promise((resolve) => {
+//                 setInterval(() => {
+//                         if(time === 0) resolve()
+//                         yellowLight.textContent = time <= 0 
+//                         ? clearInterval(time): time--      
+//                 }, 1000)      
+//                 setTimeout(() => {
+//                         addActiveClass(colorYellow)
+//                 }, time)
+//                 setTimeout(() => {removeActiveClass(colorYellow)
+
+//                 }, 4000)                     
+//         })   
+// }
+
+// function greenLightColor(time){
+//         return new Promise((resolve) => {
+//                 setInterval(() => {
+//                         if(time === 0) resolve()
+//                         greenLight.textContent = time <= 0 
+//                         ? clearInterval(time): time--    
+//                 }, 1000) 
+//                 setTimeout(() => {
+//                         addActiveClass(colorGreen)
+//                 }, time)
+//                 setTimeout(() => {
+//                         removeActiveClass(colorGreen)
+//                 }, 11000)                     
+//         })   
+// }
+
+
+
+
+
+
 
 
 
